@@ -31,7 +31,27 @@ const userPrompts = () => {
         {
             type: `input`,
             name: `introduction`,
-            message: `Write out your typical introduction to your ReadMe.`,
+            message: `Write out a quick introduction to your ReadMe.`,
+        },
+        {
+            type: `input`,
+            name: `howTo`,
+            message: `Write out a short summary of how the user will use your app.`,
+        },
+        // {
+        //     type: `confirm`,
+        //     name: `inquiryList`,
+        //     message: `Do you want to add a list of instructions to your summary?`,
+        // },
+        {
+            type: `input`,
+            name: `yourReflection`,
+            message: `Briefly reflect on the process of creating this app.`,
+        },
+        {
+            type: `input`,
+            name: `primaryPurpose`,
+            message: `What's the primary purpose of your app?`,
         },
     ]);
 };
@@ -45,45 +65,39 @@ const writeReadMe = (userInput) =>
 
 **A quick description**: ${userInput.introduction}
 
-Just enter in the city name you want to search for and watch the magic happen. My app will dynamically update to whichever city you have entered and display for you a variety of realtime data. This includes:
-- City Name
-- Current Date
-- Current Weather Icon
-- Current  Temperature, Humidity, Wind Speed, and the UV Index (which will also be highlighted in a color, as a friendly reminder of the UV quality).
-- A 5-Day Forecast of your desired city.
-and of course,
-- A search history box of your most recent searches, up to 8 total!
+${userInput.howTo}
 
 ## Reflection
 
-Wow, there was a lot to do with this code. I worked non-stop for almost 3 days and constantly found myself at various hardpoints. I still have a lot to learn in regards to fetching APIs and how to best handle them. The asynchronous nature of fetches gave me a lot of trouble.
-If I were given more time to improve the app I would:
-1. Consolidate my functions better.
-2. Research and improve the error catching process.
-3. For Loops for the large ID Arrays.
-4. For Loops for the repetitive HTML elements.
+${userInput.yourReflection}
+// TODO: Reflection list logic {writeList()};
 
 ## Setup Instruction
 
 ---
+TODO: Utilitize the function for list creation to do the same here.
+{writeList()};
 1. Clone the repro to your desktop.
 2. Launch index.html.
 
+TODO: Logic that asks if you have a live webpage. If so, you input URL.
 Alternatively:
-1. Visit https://victormoscone.github.io/victorm_hw6_weatherdash/
+1. Visit {userInput.webUrl}
 ---
 
 **Usage**
 
-* Primary Usage: Enter a city name and view the weather (current and next five days).
+* Primary Usage: ${userInput.primaryPurpose}
 * Seen below -
 
+TODO: Need logic that prompts the user to input the various screenshot URLs.
 ![weather_mobile_1](https://user-images.githubusercontent.com/70674522/98459793-f9fbdd80-2152-11eb-971f-6616d4656b5a.PNG)
 ![weather_web_1](https://user-images.githubusercontent.com/70674522/98459794-fa947400-2152-11eb-9cd0-34be180f6668.PNG)
 ![weather_web_2](https://user-images.githubusercontent.com/70674522/98459795-fb2d0a80-2152-11eb-87a2-2878b71ff18f.PNG)
 
 **Credits** 
 
+TODO: More list logic for crediting.
 * https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
 * https://stackoverflow.com/questions/9709758/dont-display-numbers-bullets-for-ordererd-or-unordered-list/9709788
 * https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class
