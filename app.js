@@ -2,25 +2,48 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 
+// Uses the utilities library to turn callbacks into promises.
 const createFile = util.promisify(fs.writeFile);
 
+// This is the list of user prompts  that we get when the app runs.
 const userPrompts = () => {
     return inquirer.prompt([
         {
             type: `input`,
             name: `homeworkNumber`,
-            message: `What's the number of the assignment? Ex: 09`,
+            message: `What's the number of the assignment?`,
+        },
+        {
+            type: `input`,
+            name: `userName`,
+            message: `What's your full name?`,
+        },
+        {
+            type: `input`,
+            name: `assignmentName`,
+            message: `What's the name of your assignment?`,
+        },
+        {
+            type: `input`,
+            name: `assnTitle`,
+            message: `What title do you want for this assignment?`,
+        },
+        {
+            type: `input`,
+            name: `introduction`,
+            message: `Write out your typical introduction to your ReadMe.`,
         },
     ]);
 };
 
+// This provides our template for the ReadMe files.
 const writeReadMe = (userInput) => 
 `
-# ${userInput.homeworkNumber} Victor Moscone's Weather Dashboard - HW6
+# 0${userInput.homeworkNumber} ${userInput.userName}'s ${userInput.assignmentName} - HW${userInput.homeworkNumber}
 
-## Weather Report with a chance of Snail Rain.
+## ${userInput.assnTitle}
 
-**A quick description**: Schönen tag! If you're looking for a regular weather report, then look no further. My good ol' weather reportin' app has just the means to roast your wurst. Whether you're looking to see today's forecast or the next *five days, we got it all!
+**A quick description**: ${userInput.introduction}
 
 Just enter in the city name you want to search for and watch the magic happen. My app will dynamically update to whichever city you have entered and display for you a variety of realtime data. This includes:
 - City Name
@@ -71,6 +94,7 @@ Alternatively:
 © 2020 Victor Moscone. All Rights Reserved.
 `;
 
+// Our asynchronous promises (thanks to promisify) to run the code.
 const initialize = async () => {
     try {
         const userInput = await userPrompts();
@@ -82,4 +106,5 @@ const initialize = async () => {
     }
 };
 
+// Runs the code immediately.
 initialize();
