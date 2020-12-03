@@ -38,11 +38,6 @@ const userPrompts = () => {
             name: `howTo`,
             message: `Write out a short summary of how the user will use your app.`,
         },
-        // {
-        //     type: `confirm`,
-        //     name: `inquiryList`,
-        //     message: `Do you want to add a list of instructions to your summary?`,
-        // },
         {
             type: `input`,
             name: `yourReflection`,
@@ -53,7 +48,18 @@ const userPrompts = () => {
             name: `primaryPurpose`,
             message: `What's the primary purpose of your app?`,
         },
+        {
+            type: `confirm`,
+            name: `reflectionList`,
+            message: `Do you want to start a list of possible improvements?`,
+        },
     ]);
+};
+
+const listForm = (source) => {
+    if (source.reflectionList) {
+        const 
+    };
 };
 
 // This provides our template for the ReadMe files.
@@ -112,12 +118,17 @@ TODO: More list logic for crediting.
 const initialize = async () => {
     try {
         const userInput = await userPrompts();
+        listForm(userInput);
         const readMe = writeReadMe(userInput);
         await createFile(`ReadMe.md`, readMe);
         console.log("Your file has been written.");
     } catch (err) {
         console.log(err);
     }
+};
+
+const writeList = () => {
+
 };
 
 // Runs the code immediately.
