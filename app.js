@@ -58,7 +58,7 @@ const userPrompts = () => {
 
 const listForm = (source) => {
     if (source.reflectionList) {
-        const 
+        
     };
 };
 
@@ -71,6 +71,17 @@ const writeReadMe = (userInput) =>
 
 **A quick description**: ${userInput.introduction}
 
+## Table of Contents
+
+* [Reflection](#Reflection)
+* [Setup Instructions](#Setup-Instructions)
+* [Usage](#Usage)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
+* [Questions](#Questions)
+* [Credits](#Credits)
+* [License](#License)
+
 ${userInput.howTo}
 
 ## Reflection
@@ -78,7 +89,7 @@ ${userInput.howTo}
 ${userInput.yourReflection}
 // TODO: Reflection list logic {writeList()};
 
-## Setup Instruction
+## Setup Instructions
 
 ---
 TODO: Utilitize the function for list creation to do the same here.
@@ -91,7 +102,7 @@ Alternatively:
 1. Visit {userInput.webUrl}
 ---
 
-**Usage**
+### **Usage**
 
 * Primary Usage: ${userInput.primaryPurpose}
 * Seen below -
@@ -101,7 +112,13 @@ TODO: Need logic that prompts the user to input the various screenshot URLs.
 ![weather_web_1](https://user-images.githubusercontent.com/70674522/98459794-fa947400-2152-11eb-9cd0-34be180f6668.PNG)
 ![weather_web_2](https://user-images.githubusercontent.com/70674522/98459795-fb2d0a80-2152-11eb-87a2-2878b71ff18f.PNG)
 
-**Credits** 
+### **Contributing**
+
+### **Tests**
+
+### **Questions**
+
+### **Credits** 
 
 TODO: More list logic for crediting.
 * https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
@@ -111,6 +128,9 @@ TODO: More list logic for crediting.
 * https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html#:~:text=A%20UV%20Index%20reading%20of%203%20to%205%20means%20moderate,when%20the%20sun%20is%20strongest.&text=swimming%20or%20sweating.-,Watch%20out%20for%20bright%20surfaces%2C%20like%20sand%2C%20water%20and%20snow,reflect%20UV%20and%20increase%20exposure.
 
 - - -
+### **License**
+TODO: User chooses which license to use.
+
 © 2020 Victor Moscone. All Rights Reserved.
 `;
 
@@ -125,10 +145,6 @@ const initialize = async () => {
     } catch (err) {
         console.log(err);
     }
-};
-
-const writeList = () => {
-
 };
 
 // Runs the code immediately.
