@@ -45,27 +45,46 @@ const userPrompts = () => {
         },
         {
             type: `input`,
+            name: `setupInstructions`,
+            message: `Explain how to setup your app for use. Include a live URL if applicable.`,
+        },
+        {
+            type: `input`,
             name: `primaryPurpose`,
             message: `What's the primary purpose of your app?`,
         },
         {
-            type: `confirm`,
-            name: `reflectionList`,
-            message: `Do you want to start a list of possible improvements?`,
+            type: `input`,
+            name: `screenshotUrl`,
+            message: `Include a screenshot URL for the app using github issues.`,
+        },
+        {
+            type: `input`,
+            name: `contCovenant`,
+            message: `Include a link to a contributions covenant badge of your choice.`,
+        },
+        {
+            type: `input`,
+            name: `testGuide`,
+            message: `Do you have any tests for this app? If so, include instructions on how to run them.`,
+        },
+        {
+            type: `input`,
+            name: `gitName`,
+            message: `Provide your GitHub username.`,
+        },
+        {
+            type: `input`,
+            name: `emailInfo`,
+            message: `Provide an email address for users to contact you.`,
         },
     ]);
-};
-
-const listForm = (source) => {
-    if (source.reflectionList) {
-        
-    };
 };
 
 // This provides our template for the ReadMe files.
 const writeReadMe = (userInput) => 
 `
-# 0${userInput.homeworkNumber} ${userInput.userName}'s ${userInput.assignmentName} - HW${userInput.homeworkNumber}
+# ${userInput.homeworkNumber} ${userInput.userName}'s ${userInput.assignmentName} - HW${userInput.homeworkNumber}
 
 ## ${userInput.assnTitle}
 
@@ -87,19 +106,13 @@ ${userInput.howTo}
 ## Reflection
 
 ${userInput.yourReflection}
-// TODO: Reflection list logic {writeList()};
 
 ## Setup Instructions
 
 ---
-TODO: Utilitize the function for list creation to do the same here.
-{writeList()};
-1. Clone the repro to your desktop.
-2. Launch index.html.
 
-TODO: Logic that asks if you have a live webpage. If so, you input URL.
-Alternatively:
-1. Visit {userInput.webUrl}
+${userInput.setupInstructions}
+
 ---
 
 ### **Usage**
@@ -107,16 +120,20 @@ Alternatively:
 * Primary Usage: ${userInput.primaryPurpose}
 * Seen below -
 
-TODO: Need logic that prompts the user to input the various screenshot URLs.
-![weather_mobile_1](https://user-images.githubusercontent.com/70674522/98459793-f9fbdd80-2152-11eb-971f-6616d4656b5a.PNG)
-![weather_web_1](https://user-images.githubusercontent.com/70674522/98459794-fa947400-2152-11eb-9cd0-34be180f6668.PNG)
-![weather_web_2](https://user-images.githubusercontent.com/70674522/98459795-fb2d0a80-2152-11eb-87a2-2878b71ff18f.PNG)
+${userInput.screenshotUrl}
 
 ### **Contributing**
 
+${userInput.contCovenant}
+
 ### **Tests**
 
+${userInput.testGuide}
+
 ### **Questions**
+
+[My GitHub Profile](https://github.com/${userInput.gitName})
+My Email Information: ${userInput.emailInfo}
 
 ### **Credits** 
 
@@ -138,7 +155,6 @@ TODO: User chooses which license to use.
 const initialize = async () => {
     try {
         const userInput = await userPrompts();
-        listForm(userInput);
         const readMe = writeReadMe(userInput);
         await createFile(`ReadMe.md`, readMe);
         console.log("Your file has been written.");
