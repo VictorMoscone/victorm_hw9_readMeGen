@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
+const mitNotice = require("./licenses/mit");
 
 // Uses the utilities library to turn callbacks into promises.
 const createFile = util.promisify(fs.writeFile);
@@ -154,7 +155,8 @@ TODO: More list logic for crediting.
 
 - - -
 ### **License**
-TODO: User chooses which license to use.
+
+${licenseNotice(userInput.license)}
 
 © 2020 Victor Moscone. All Rights Reserved.
 `;
@@ -167,6 +169,12 @@ const licenseBadge = (type) => {
         return "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)";
     } else if (type == "Do What You Want") {
         return "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)";
+    }
+};
+
+const licenseNotice = (type) => {
+    if (type == "Mit") {
+        return mitNotice;
     }
 };
 
