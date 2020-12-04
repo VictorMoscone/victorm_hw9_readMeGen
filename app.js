@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
+// The below three Requires are pulling our license notices for later.
 const mitNotice = require("./licenses/mit");
 const ccNotice = require("./licenses/cc");
 const unlicenseNotice = require("./licenses/unlicense");
@@ -47,7 +48,7 @@ const userPrompts = () => {
             message: `Briefly reflect on the process of creating this app.`,
         },
         {
-            type: `input`,
+            type: `editor`,
             name: `setupInstructions`,
             message: `Explain how to setup your app for use. Include a live URL if applicable.`,
         },
@@ -57,9 +58,9 @@ const userPrompts = () => {
             message: `What's the primary purpose of your app?`,
         },
         {
-            type: `input`,
+            type: `editor`,
             name: `screenshotUrl`,
-            message: `Include a screenshot URL for the app using github issues.`,
+            message: `Include screenshot/video URLs for the app using github issues.`,
         },
         {
             type: `input`,
@@ -80,6 +81,11 @@ const userPrompts = () => {
             type: `input`,
             name: `emailInfo`,
             message: `Provide an email address for users to contact you.`,
+        },
+        {
+            type: `editor`,
+            name: `credits`,
+            message: `Provide the URL of any sites that were useful.`,
         },
         {
             type: `list`,
@@ -148,11 +154,7 @@ My Email Information: ${userInput.emailInfo}
 
 ### **Credits** 
 
-* https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
-* https://stackoverflow.com/questions/9709758/dont-display-numbers-bullets-for-ordererd-or-unordered-list/9709788
-* https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class
-* https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon
-* https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html#:~:text=A%20UV%20Index%20reading%20of%203%20to%205%20means%20moderate,when%20the%20sun%20is%20strongest.&text=swimming%20or%20sweating.-,Watch%20out%20for%20bright%20surfaces%2C%20like%20sand%2C%20water%20and%20snow,reflect%20UV%20and%20increase%20exposure.
+${userInput.credits}
 
 - - -
 ### **License**
@@ -161,6 +163,7 @@ My Email Information: ${userInput.emailInfo}
 ${licenseNotice(userInput.license)}
 `;
 
+// Based on user response, this will add a badge for our chosen license.
 const licenseBadge = (type) => {
     console.log(type)
     if (type == "Mit") {
@@ -169,9 +172,10 @@ const licenseBadge = (type) => {
         return "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)";
     } else if (type == "Unlicense") {
         return "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
-    }
+    };
 };
 
+// This is what figures out and populates our license notice at the end of the ReadMe.
 const licenseNotice = (type) => {
     if (type == "Mit") {
         return mitNotice;
