@@ -2,6 +2,8 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 const mitNotice = require("./licenses/mit");
+const ccNotice = require("./licenses/cc");
+const unlicenseNotice = require("./licenses/unlicense");
 
 // Uses the utilities library to turn callbacks into promises.
 const createFile = util.promisify(fs.writeFile);
@@ -83,7 +85,7 @@ const userPrompts = () => {
             type: `list`,
             name: `license`,
             message: `Choose your license type.`,
-            choices: ["Mit", "Creative Commons", "Do What You Want"]
+            choices: ["Mit", "Creative Commons", "Unlicense"]
         },
     ]);
 };
@@ -146,7 +148,6 @@ My Email Information: ${userInput.emailInfo}
 
 ### **Credits** 
 
-TODO: More list logic for crediting.
 * https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
 * https://stackoverflow.com/questions/9709758/dont-display-numbers-bullets-for-ordererd-or-unordered-list/9709788
 * https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class
@@ -155,10 +156,9 @@ TODO: More list logic for crediting.
 
 - - -
 ### **License**
+© 2020 Victor Moscone. All Rights Reserved.
 
 ${licenseNotice(userInput.license)}
-
-© 2020 Victor Moscone. All Rights Reserved.
 `;
 
 const licenseBadge = (type) => {
@@ -167,15 +167,19 @@ const licenseBadge = (type) => {
         return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
     } else if (type == "Creative Commons") {
         return "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)";
-    } else if (type == "Do What You Want") {
-        return "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)";
+    } else if (type == "Unlicense") {
+        return "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
     }
 };
 
 const licenseNotice = (type) => {
     if (type == "Mit") {
         return mitNotice;
-    }
+    } else if (type == "Creative Commons") {
+        return ccNotice;
+    } else if (type == "Unlicense") {
+        return unlicenseNotice;
+    };
 };
 
 // Our asynchronous promises (thanks to promisify) to run the code.
