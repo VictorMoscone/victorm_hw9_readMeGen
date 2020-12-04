@@ -78,12 +78,20 @@ const userPrompts = () => {
             name: `emailInfo`,
             message: `Provide an email address for users to contact you.`,
         },
+        {
+            type: `list`,
+            name: `license`,
+            message: `Choose your license type.`,
+            choices: ["Mit", "Creative Commons",]
+        },
     ]);
 };
 
 // This provides our template for the ReadMe files.
 const writeReadMe = (userInput) => 
 `
+${licenseType(userInput.license)}
+
 # ${userInput.homeworkNumber} ${userInput.userName}'s ${userInput.assignmentName} - HW${userInput.homeworkNumber}
 
 ## ${userInput.assnTitle}
@@ -151,6 +159,16 @@ TODO: User chooses which license to use.
 © 2020 Victor Moscone. All Rights Reserved.
 `;
 
+const licenseType = (type) => {
+    console.log(type)
+    if (type == "Mit") {
+        const mit = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+        return mit;
+    } else if (type == "Creative Commons") {
+        return "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)";
+    };
+};
+
 // Our asynchronous promises (thanks to promisify) to run the code.
 const initialize = async () => {
     try {
@@ -160,7 +178,7 @@ const initialize = async () => {
         console.log("Your file has been written.");
     } catch (err) {
         console.log(err);
-    }
+    };
 };
 
 // Runs the code immediately.
