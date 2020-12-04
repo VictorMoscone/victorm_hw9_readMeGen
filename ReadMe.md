@@ -42,7 +42,7 @@ Creating this app was a weird affair. On the one hand, there were a lot of eleme
 * Primary Usage: Allow users to quickly and easily generate ReadMe files for their projects.
 * Seen below -
 
-
+[![YouTube Video Tutorial](https://img.youtube.com/vi/4PQKYkoYZgI/0.jpg)](https://www.youtube.com/watch?v=4PQKYkoYZgI)
 
 ### **Contributing**
 
