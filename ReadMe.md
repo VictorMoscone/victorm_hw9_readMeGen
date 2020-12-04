@@ -1,11 +1,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# 1 1's 1 - HW1
+# 09 Victor Moscone's ReadMe Generator - HW09
 
-## 1
+## Generating infinite powah with infinite ReadMes
 
-**A quick description**: 1
+**A quick description**: Hello there fellow ReadMe enthusiasts. Welcome to my attempt at a ReadMe generator. With all the care in the world, you too can generate ReadMe files for your projects quickly and easily.
 
 ## Table of Contents
 
@@ -18,56 +18,59 @@
 * [Credits](#Credits)
 * [License](#License)
 
-1
+All you need to do is run [ node index.js ] in your command line and you'll be good to go! From there, you will be given several prompts to answer that will help populate your wonderful ReadMe file. It's so easy, even a child can do it! Note: The app may open a text editor so that you can enter more precise markdown text.
 
 ## Reflection
 
-1
+Creating this app was a weird affair. On the one hand, there were a lot of elements that seemed foreign and confusing to me, while on the other hand, there were a few elements that seemed way too easy. Like almost all assignments before this, I always leave the assignment thinking about all the ways I could have done things differently to achieve a more elegent result.
 
 ## Setup Instructions
 
 ---
 
-1
+```
+1. Clone the repro to your desktop.
+2. Right click the folder you just cloned.
+3. Click 'Git Bash Here'.
+4. Type 'node index.js'.
+```
 
 ---
 
 ### **Usage**
 
-* Primary Usage: 1
+* Primary Usage: Allow users to quickly and easily generate ReadMe files for their projects.
 * Seen below -
 
-1
+
 
 ### **Contributing**
 
-1
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 ### **Tests**
 
-1
+N/A
 
 ### **Questions**
 
-[My GitHub Profile](https://github.com/1)
-My Email Information: 1
+[My GitHub Profile](https://github.com/VictorMoscone)
+My Email Information: example@example.com
 
 ### **Credits** 
 
-TODO: More list logic for crediting.
-* https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
-* https://stackoverflow.com/questions/9709758/dont-display-numbers-bullets-for-ordererd-or-unordered-list/9709788
-* https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class
-* https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon
-* https://19january2017snapshot.epa.gov/sunsafety/uv-index-scale-1_.html#:~:text=A%20UV%20Index%20reading%20of%203%20to%205%20means%20moderate,when%20the%20sun%20is%20strongest.&text=swimming%20or%20sweating.-,Watch%20out%20for%20bright%20surfaces%2C%20like%20sand%2C%20water%20and%20snow,reflect%20UV%20and%20increase%20exposure.
+* https://www.npmjs.com/package/inquirer
+* https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+* https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
+* https://www.contributor-covenant.org/
+* https://choosealicense.com/
 
 - - -
 ### **License**
+© 2020 Victor Moscone. All Rights Reserved.
 
 
 MIT License
-
-Copyright (c) [year] [fullname]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -87,5 +90,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-© 2020 Victor Moscone. All Rights Reserved.
