@@ -1,9 +1,11 @@
 
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
+
 # 1 2's 3 - HW1
 
-## 4
+## 1
 
-**A quick description**: 5
+**A quick description**: 1
 
 ## Table of Contents
 
@@ -16,34 +18,39 @@
 * [Credits](#Credits)
 * [License](#License)
 
-6
+1
 
 ## Reflection
 
-7
+1
 
 ## Setup Instructions
 
 ---
 
-8
+1
 
 ---
 
 ### **Usage**
 
-* Primary Usage: 9
+* Primary Usage: 1
 * Seen below -
 
 1
 
 ### **Contributing**
 
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+1
 
 ### **Tests**
 
+1
+
 ### **Questions**
+
+[My GitHub Profile](https://github.com/1)
+My Email Information: 1
 
 ### **Credits** 
 

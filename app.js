@@ -82,7 +82,7 @@ const userPrompts = () => {
             type: `list`,
             name: `license`,
             message: `Choose your license type.`,
-            choices: ["Mit", "Creative Commons",]
+            choices: ["Mit", "Creative Commons", "Do What You Want"]
         },
     ]);
 };
@@ -90,7 +90,7 @@ const userPrompts = () => {
 // This provides our template for the ReadMe files.
 const writeReadMe = (userInput) => 
 `
-${licenseType(userInput.license)}
+${licenseBadge(userInput.license)}
 
 # ${userInput.homeworkNumber} ${userInput.userName}'s ${userInput.assignmentName} - HW${userInput.homeworkNumber}
 
@@ -159,14 +159,15 @@ TODO: User chooses which license to use.
 © 2020 Victor Moscone. All Rights Reserved.
 `;
 
-const licenseType = (type) => {
+const licenseBadge = (type) => {
     console.log(type)
     if (type == "Mit") {
-        const mit = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
-        return mit;
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
     } else if (type == "Creative Commons") {
         return "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)";
-    };
+    } else if (type == "Do What You Want") {
+        return "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)";
+    }
 };
 
 // Our asynchronous promises (thanks to promisify) to run the code.
